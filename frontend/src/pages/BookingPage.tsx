@@ -38,16 +38,11 @@ const schema = yup.object().shape({
     .min(1, "Please select a valid car"),
   user: yup.object({
     name: yup.string().required("Name is required"),
-    driving_license_valid_until: yup
-      .string()
-      .required("Driving license validity date is required"),
+    driving_license_valid_until: yup.string().required("Driving license validity date is required"),
     driving_license_number: yup
       .string()
       .required("Driving license number is required")
-      .matches(
-        /^[A-Z]{2}[0-9]{2}[A-Z]{1,2}[0-9]{4}$/,
-        "Invalid format. Example: MH12AB1234"
-      ),
+      .matches(/^[A-Z]{2}[0-9]{2}[A-Z]{1,2}[0-9]{4}$/, "Invalid format. Example: MH12AB1234"),
   }),
 });
 
@@ -103,7 +98,7 @@ export default function BookingPage() {
   const onSubmit = async (data: BookingFormData) => {
     try {
       await createBooking(data);
-      reset(); // Clear form after submission
+      reset();
       navigate("/", { state: { name: data.user.name } });
     } catch (err: unknown) {
       if (typeof err === "object" && err !== null && "response" in err) {
@@ -128,28 +123,26 @@ export default function BookingPage() {
           <h3 className="text-center mb-4">Book a Car</h3>
 
           <form onSubmit={handleSubmit(onSubmit)} noValidate>
-            {/* Start Date */}
             <div className="mb-3">
-              <label className="form-label">Start Date</label>
-              <input type="date" {...register("start_date")} className="form-control" />
+              <label htmlFor="start_date" className="form-label">Start Date</label>
+              <input id="start_date" type="date" {...register("start_date")} className="form-control" />
               <div className="form-text text-danger">{errors.start_date?.message}</div>
             </div>
 
-            {/* End Date */}
             <div className="mb-3">
-              <label className="form-label">End Date</label>
-              <input type="date" {...register("end_date")} className="form-control" />
+              <label htmlFor="end_date" className="form-label">End Date</label>
+              <input id="end_date" type="date" {...register("end_date")} className="form-control" />
               <div className="form-text text-danger">{errors.end_date?.message}</div>
             </div>
 
-            {/* Car Select */}
             <div className="mb-3">
-              <label className="form-label">Select Car</label>
+              <label htmlFor="car_id" className="form-label">Select Car</label>
               <Controller
                 name="car_id"
                 control={control}
                 render={({ field }) => (
                   <select
+                    id="car_id"
                     {...field}
                     className="form-select"
                     disabled={loadingCars || cars.length === 0}
@@ -168,17 +161,16 @@ export default function BookingPage() {
               <div className="form-text text-danger">{errors.car_id?.message}</div>
             </div>
 
-            {/* User Name */}
             <div className="mb-3">
-              <label className="form-label">Your Name</label>
-              <input {...register("user.name")} className="form-control" />
+              <label htmlFor="user_name" className="form-label">Your Name</label>
+              <input id="user_name" {...register("user.name")} className="form-control" />
               <div className="form-text text-danger">{errors.user?.name?.message}</div>
             </div>
 
-            {/* Driving License Number */}
             <div className="mb-3">
-              <label className="form-label">Driving License Number</label>
+              <label htmlFor="license_number" className="form-label">Driving License Number</label>
               <input
+                id="license_number"
                 {...register("user.driving_license_number")}
                 className="form-control"
                 placeholder="E.g. MH12AB1234"
@@ -188,10 +180,10 @@ export default function BookingPage() {
               </div>
             </div>
 
-            {/* Driving License Valid Until */}
             <div className="mb-3">
-              <label className="form-label">Driving License Valid Until</label>
+              <label htmlFor="license_valid_until" className="form-label">Driving License Valid Until</label>
               <input
+                id="license_valid_until"
                 type="date"
                 {...register("user.driving_license_valid_until")}
                 className="form-control"
@@ -201,7 +193,6 @@ export default function BookingPage() {
               </div>
             </div>
 
-            {/* Buttons */}
             <div className="d-flex justify-content-between">
               <button type="button" className="btn btn-secondary" onClick={() => navigate(-1)}>
                 Back
