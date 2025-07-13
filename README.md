@@ -15,6 +15,7 @@ It supports season-based pricing, car availability by time slot, and user bookin
 - React Hook Form + Yup
 - Axios
 - React Router
+- Jest (for tests)
   
 # Backend
 - Node.js + Express
@@ -95,11 +96,10 @@ This is a backend application for retrieving available cars based on season pric
 
 # Car Rental frontend Application 
 
-This is a frontend application for Car rental. It shows a list of available cars based on season and their price. Also user can book/rent the car 
-based on their choice.
+This is a frontend application for Car rental. It shows a list of available cars based on season and their price. Also user can book/rent the car based on their choice.
 
 ## Getting Started
-- Running the Application:
+1. Running the Application:
    - npm run dev
 
 # App URL
@@ -112,6 +112,10 @@ http://localhost:5173
 
 <img width="1291" height="692" alt="image" src="https://github.com/user-attachments/assets/27163c02-baf3-41b6-9b56-98a3e49e29bd" />
 
+2. Running Tests
+
+   - npx jest
+     
 ## To explore and see other feature
  - On car availablity page, change the date filter and see different price of car based on season.
  - If you want to rent a car click on the button 'Rent a car', it will navaigate to the http://localhost:5173/book
