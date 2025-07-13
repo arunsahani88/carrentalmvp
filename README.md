@@ -72,7 +72,7 @@ This is a backend application for retrieving available cars based on season pric
     
     Response:
     
-    - 200 - Returns an array of available
+    - 200 - Returns an array of available cars
     - 400 - Missing startDate or endDate or invalid date range
     - 500 - Internal Server Error.
     
@@ -113,7 +113,7 @@ http://localhost:5173
 <img width="1291" height="692" alt="image" src="https://github.com/user-attachments/assets/27163c02-baf3-41b6-9b56-98a3e49e29bd" />
 
 ## To explore and see other feature
- - On car availablity page, change the date filter and see different price based on season.
+ - On car availablity page, change the date filter and see different price of car based on season.
  - If you want to rent a car click on the button 'Rent a car', it will navaigate to the http://localhost:5173/book
  - Then fill the details, after submitting your request will be saved and you will navigate back to car availablity page.
    
