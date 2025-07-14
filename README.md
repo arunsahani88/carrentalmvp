@@ -42,12 +42,13 @@ Before you begin, make sure you have:
    - npm install
    - Open the code in any editor and create the .env file
    - Sample for env
-      PORT=
-      DB_HOST=
-      DB_PORT=
-      DB_NAME=
-      DB_USER=
-      DB_PASSWORD=
+     
+      - PORT=
+      - DB_HOST=
+      - DB_PORT=
+      - DB_NAME=
+      - DB_USER=
+      - DB_PASSWORD=
        
    - Provide the values to environment variables.
    - npm run dev
