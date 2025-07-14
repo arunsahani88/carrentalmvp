@@ -40,8 +40,16 @@ Before you begin, make sure you have:
 2) To run server application, follow below steps from the root folder -
    - cd backend
    - npm install
-   - Open the code in any editor and open the .env file
-   - Replace your DB user and password.
+   - Open the code in any editor and create the .env file
+   - Sample for env
+      PORT=
+      DB_HOST=
+      DB_PORT=
+      DB_NAME=
+      DB_USER=
+      DB_PASSWORD=
+       
+   - Provide the values to environment variables.
    - npm run dev
 
 3) To run the frontend app, run below command from the root folder -
